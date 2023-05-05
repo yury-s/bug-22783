@@ -13,5 +13,4 @@ test('label directives for self+label', async ({ page }) => {
     console.log('Failed: ' + request.method() + ' ' + request.url());
   });
   await page.getByText('Send OPTIONS request').click();
-  await page.waitForTimeout(10000);
 });

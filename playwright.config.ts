@@ -12,10 +12,10 @@ const config: PlaywrightTestConfig = {
   retries: 2,
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
-  // webServer: {
-  //   command: 'node ./server.js > server.log',
-  //   port: 3000,
-  // },
+  webServer: {
+    command: 'node ./server.js > server.log',
+    port: 3000,
+  },
   use: {
     actionTimeout: 0,
     trace: {

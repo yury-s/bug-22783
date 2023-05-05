@@ -1,0 +1,25 @@
+<script>
+async function sendOptionsRequest() {
+    try {
+        const url = 'http://127.0.0.1:3000/resource';
+        // const response = await fetch(url, {
+        //     method: 'OPTIONS',
+        // });
+        const response = await fetch(url, {
+          method: 'DELETE',
+          headers: { 'X-PINGOTHER': 'pingpong' }
+        });
+        if (response.ok) {
+            const headers = response.headers;
+            console.log('Allowed methods:', headers.get('Allow'));
+        } else {
+            console.error('Request failed with status', response.status);
+        }
+    } catch (error) {
+        console.error('Request failed with error:', error);
+    }
+}
+</script>
+<body>
+    <button onclick="sendOptionsRequest()">Send OPTIONS request</button>
+</body>
